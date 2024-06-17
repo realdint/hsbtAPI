@@ -1,3 +1,9 @@
 {
-    "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-}
+    "version": 2,
+    "builds": [
+      { "src": "api/Program.cs", "use": "@vercel/dotnet" }
+    ],
+    "routes": [
+      { "src": "/api/(.*)", "dest": "/api/Program.cs" }
+    ]
+  }
