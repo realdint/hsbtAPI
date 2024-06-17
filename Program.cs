@@ -15,6 +15,11 @@ var app = builder.Build();
 
 string discordBotToken = Environment.GetEnvironmentVariable("DISCORD_BOT_TOKEN");
 
+if (string.IsNullOrEmpty(discordBotToken))
+{
+    Console.WriteLine("DISCORD_BOT_TOKEN is not set.");
+}
+
 app.MapPost("/api/roblox", async (HttpRequest request) =>
 {
     using var reader = new StreamReader(request.Body);
