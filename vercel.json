@@ -1,9 +1,19 @@
 {
     "version": 2,
     "builds": [
-      { "src": "api/Program.cs", "use": "@vercel/dotnet" }
+      {
+        "src": "Dockerfile",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "app/publish"
+        }
+      }
     ],
     "routes": [
-      { "src": "/api/(.*)", "dest": "/api/Program.cs" }
+      {
+        "src": "/(.*)",
+        "dest": "/"
+      }
     ]
-  }
+}
+  
